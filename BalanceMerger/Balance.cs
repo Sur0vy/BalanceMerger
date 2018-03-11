@@ -168,7 +168,6 @@ namespace BalanceMerger
 
         public bool merge(Journal journal)
         {
-
             return true;
         }
 
