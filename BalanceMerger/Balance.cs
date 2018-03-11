@@ -4,7 +4,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BalanceMerger
 {
-    class Balance
+    public class Balance
     {
         public string fileName;
         private List<BalanceItem> items;
@@ -13,6 +13,11 @@ namespace BalanceMerger
         {
             this.fileName = "";
             items = new List<BalanceItem>();
+        }
+
+        public int itemsCount()
+        {
+            return items.Count;
         }
 
         private bool loadFromXLS()

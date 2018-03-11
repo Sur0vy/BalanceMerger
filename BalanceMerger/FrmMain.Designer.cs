@@ -46,7 +46,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(336, 167);
+            this.btnClose.Location = new System.Drawing.Point(282, 167);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.groupBoxJournal.Controls.Add(this.btnOpenJournal);
             this.groupBoxJournal.Location = new System.Drawing.Point(12, 12);
             this.groupBoxJournal.Name = "groupBoxJournal";
-            this.groupBoxJournal.Size = new System.Drawing.Size(399, 52);
+            this.groupBoxJournal.Size = new System.Drawing.Size(345, 52);
             this.groupBoxJournal.TabIndex = 4;
             this.groupBoxJournal.TabStop = false;
             this.groupBoxJournal.Text = "Journal";
@@ -74,14 +74,14 @@
             this.labelJournal.AutoEllipsis = true;
             this.labelJournal.Location = new System.Drawing.Point(6, 25);
             this.labelJournal.Name = "labelJournal";
-            this.labelJournal.Size = new System.Drawing.Size(354, 13);
+            this.labelJournal.Size = new System.Drawing.Size(300, 13);
             this.labelJournal.TabIndex = 1;
             this.labelJournal.Text = "...";
             // 
             // btnOpenJournal
             // 
             this.btnOpenJournal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenJournal.Location = new System.Drawing.Point(366, 20);
+            this.btnOpenJournal.Location = new System.Drawing.Point(312, 20);
             this.btnOpenJournal.Name = "btnOpenJournal";
             this.btnOpenJournal.Size = new System.Drawing.Size(27, 23);
             this.btnOpenJournal.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.groupBoxBalance.Controls.Add(this.btnOpenBalance);
             this.groupBoxBalance.Location = new System.Drawing.Point(12, 70);
             this.groupBoxBalance.Name = "groupBoxBalance";
-            this.groupBoxBalance.Size = new System.Drawing.Size(399, 57);
+            this.groupBoxBalance.Size = new System.Drawing.Size(345, 57);
             this.groupBoxBalance.TabIndex = 5;
             this.groupBoxBalance.TabStop = false;
             this.groupBoxBalance.Text = "Balance";
@@ -109,14 +109,14 @@
             this.labelBalance.AutoEllipsis = true;
             this.labelBalance.Location = new System.Drawing.Point(6, 25);
             this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(354, 13);
+            this.labelBalance.Size = new System.Drawing.Size(300, 13);
             this.labelBalance.TabIndex = 2;
             this.labelBalance.Text = "...";
             // 
             // btnOpenBalance
             // 
             this.btnOpenBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenBalance.Location = new System.Drawing.Point(366, 20);
+            this.btnOpenBalance.Location = new System.Drawing.Point(312, 20);
             this.btnOpenBalance.Name = "btnOpenBalance";
             this.btnOpenBalance.Size = new System.Drawing.Size(27, 23);
             this.btnOpenBalance.TabIndex = 0;
@@ -145,7 +145,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(93, 133);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(318, 23);
+            this.progressBar.Size = new System.Drawing.Size(264, 23);
             this.progressBar.Step = 100;
             this.progressBar.TabIndex = 7;
             // 
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 202);
+            this.ClientSize = new System.Drawing.Size(369, 202);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.groupBoxBalance);

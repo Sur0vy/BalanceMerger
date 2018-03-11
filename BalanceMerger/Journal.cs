@@ -4,7 +4,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BalanceMerger
 {
-    class Journal
+    public class Journal
     {
         public string fileName;
         private List<JournalItem> items;
@@ -43,7 +43,6 @@ namespace BalanceMerger
                     return false;
 
                 int i = 0;
-                string value = "";
 
                 while (i < Helper.TRY_COUNT)
                 {

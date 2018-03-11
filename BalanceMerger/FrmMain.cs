@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BalanceMerger
 {
@@ -37,11 +38,12 @@ namespace BalanceMerger
 
         private void btnMerge_Click(object sender, EventArgs e)
         {
-            if (balance.merge(journal))
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    balance.save(saveFileDialog.FileName);    
-            }
+            MergeBalance();
+            //if (balance.merge(journal))
+            //{
+            //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            //        balance.save(saveFileDialog.FileName);    
+            //}
         }
 
         private void openBalance(string fileName)
@@ -76,6 +78,30 @@ namespace BalanceMerger
             {
                 openBalance(openFileDialog.FileName);
                 checkSourceData();
+            }
+        }
+
+        private void MergeBalance()
+        {
+            progressBar.Maximum = balance.itemsCount();
+            progressBar.Value = 0;
+            progressBar.Step = 1;
+
+            var processor = new Merger(balance, journal);
+            processor.Progress += ProcessorProgress;
+            var thread = new Thread(processor.DoMerge);
+            thread.Start();
+        }
+
+        void ProcessorProgress(int progress)
+        {
+            if (progressBar.InvokeRequired)
+            {
+                progressBar.Invoke(new MergerHandler(ProcessorProgress), progress);
+            }
+            else
+            {
+                progressBar.Value = progress;
             }
         }
     }
