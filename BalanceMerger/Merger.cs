@@ -28,8 +28,7 @@ namespace BalanceMerger
             for (int i = 1; i <= balance.itemsCount(); ++i)
             {
                 Thread.Sleep(100);
-                if (Progress != null)
-                    Progress(i);
+                Progress?.Invoke(i);
             }
         }
     }    

@@ -19,6 +19,8 @@ namespace BalanceMerger
 
         public FrmMain()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
+            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
             InitializeComponent();
         }
 
@@ -39,11 +41,6 @@ namespace BalanceMerger
         private void btnMerge_Click(object sender, EventArgs e)
         {
             MergeBalance();
-            //if (balance.merge(journal))
-            //{
-            //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //        balance.save(saveFileDialog.FileName);    
-            //}
         }
 
         private void openBalance(string fileName)
@@ -83,6 +80,7 @@ namespace BalanceMerger
 
         private void MergeBalance()
         {
+            lblStatus.Text = Resources.Strings.stProcess;
             progressBar.Maximum = balance.itemsCount();
             progressBar.Value = 0;
             progressBar.Step = 1;
@@ -102,6 +100,10 @@ namespace BalanceMerger
             else
             {
                 progressBar.Value = progress;
+                if (progress == progressBar.Maximum)
+                {
+                    lblStatus.Text = Resources.Strings.stDone;
+                }
             }
         }
     }
