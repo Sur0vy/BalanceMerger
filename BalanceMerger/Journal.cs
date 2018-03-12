@@ -15,7 +15,7 @@ namespace BalanceMerger
             items = new List<JournalItem>();
         }
 
-        public int itemsCount()
+        public int ItemsCount()
         {
             return items.Count;
         }
@@ -37,7 +37,7 @@ namespace BalanceMerger
             return items[index];
         }
 
-        private bool loadFromXLS()
+        private bool LoadFromXLS()
         {
             Excel.Application objExcel = new Excel.Application();
             try
@@ -51,16 +51,16 @@ namespace BalanceMerger
                 objWorkbook = objExcel.ActiveWorkbook;
                 objWorksheet = (Excel.Worksheet)objWorkbook.ActiveSheet;
 
-                int row = findRow(Helper.CONTENT, objWorksheet);
+                int row = FindRow(Helper.CONTENT, objWorksheet);
                 if (row == -1)
                     return false;
-                int iCont = findField(Helper.CONTENT, row, objWorksheet);
+                int iCont = FindField(Helper.CONTENT, row, objWorksheet);
                 if (iCont == -1)
                     return false;
-                int iDoc = findField(Helper.DOC, row, objWorksheet);
+                int iDoc = FindField(Helper.DOC, row, objWorksheet);
                 if (iDoc == -1)
                     return false;
-                int iAmount = findField(Helper.AMOUNT, row, objWorksheet);
+                int iAmount = FindField(Helper.AMOUNT, row, objWorksheet);
                 if (iAmount == -1)
                     return false;
 
@@ -69,8 +69,10 @@ namespace BalanceMerger
                 while (i < Helper.TRY_COUNT)
                 {
                     row = row + 2;
-                    JournalItem JI = new JournalItem();
-                    JI.Description = objWorksheet.Cells[row, iCont].Text.ToString();
+                    JournalItem JI = new JournalItem
+                    {
+                        Description = objWorksheet.Cells[row, iCont].Text.ToString()
+                    };
                     if (JI.Description.Equals(""))
                     {
                         i++;
@@ -112,14 +114,14 @@ namespace BalanceMerger
             }
         }
 
-        public bool loadFromFile(string fileName)
+        public bool LoadFromFile(string fileName)
         {
             this.fileName = fileName;
-            bool res = loadFromXLS();
+            bool res = LoadFromXLS();
             return res;
         }
 
-        private int findRow(string field, Excel.Worksheet workSheet)
+        private int FindRow(string field, Excel.Worksheet workSheet)
         {
             int iRow = 1;            
             int row = 1;            
@@ -161,7 +163,7 @@ namespace BalanceMerger
             return -1;
         }
 
-        private int findField(string field, int row, Excel.Worksheet workSheet)
+        private int FindField(string field, int row, Excel.Worksheet workSheet)
         {
             int i = 1;
             int col = 1;

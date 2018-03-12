@@ -21,4 +21,6 @@ namespace BalanceMerger
         public const int TRY_COUNT = 10;
 
     }
+
+    public enum ItemState {isFound, isMissing, isZero, isCollect};
 }

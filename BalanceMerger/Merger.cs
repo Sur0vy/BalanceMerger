@@ -27,7 +27,7 @@ namespace BalanceMerger
         {
             BalanceItem bi;
             int index;
-            for (int i = 1; i <= balance.itemsCount() - 1; ++i)
+            for (int i = 1; i <= balance.ItemsCount() - 1; ++i)
             {
                 bi = balance.GetItem(i);
                 index = journal.HasItem(bi.Description, bi.Rest);

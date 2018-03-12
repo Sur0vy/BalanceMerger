@@ -24,58 +24,58 @@ namespace BalanceMerger
             InitializeComponent();
         }
 
-        private void btnOpenJournal_Click(object sender, EventArgs e)
+        private void BtnOpenJournal_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                openJournal(openFileDialog.FileName);
-                checkSourceData();
+                OpenJournal(openFileDialog.FileName);
+                CheckSourceData();
             }                
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnMerge_Click(object sender, EventArgs e)
+        private void BtnMerge_Click(object sender, EventArgs e)
         {
             MergeBalance();
         }
 
-        private void openBalance(string fileName)
+        private void OpenBalance(string fileName)
         {
             balance = new Balance();
-            if (balance.loadFromFile(fileName))
+            if (balance.LoadFromFile(fileName))
             {
                 labelBalance.Text = balance.fileName;
             }            
         }
 
-        private void openJournal(string fileName)
+        private void OpenJournal(string fileName)
         {
             journal = new Journal();            
-            if (journal.loadFromFile(fileName))
+            if (journal.LoadFromFile(fileName))
             {
                 labelJournal.Text = journal.fileName;
             }
         }
 
-        private void checkSourceData()
+        private void CheckSourceData()
         {
             if ((balance != null) & (journal != null))            
-                if ((balance.itemsCount() > 0) & (journal.itemsCount() > 0))
+                if ((balance.ItemsCount() > 0) & (journal.ItemsCount() > 0))
                 {
                     btnMerge.Enabled = true;   
                 }
         }
 
-        private void btnOpenBalance_Click(object sender, EventArgs e)
+        private void BtnOpenBalance_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                openBalance(openFileDialog.FileName);
-                checkSourceData();
+                OpenBalance(openFileDialog.FileName);
+                CheckSourceData();
             }
         }
 
@@ -118,7 +118,7 @@ namespace BalanceMerger
         private void StartProcess()
         {
             lblStatus.Text = Resources.Strings.stProcess;
-            progressBar.Maximum = balance.itemsCount() - 1;
+            progressBar.Maximum = balance.ItemsCount() - 1;
             progressBar.Value = 0;
             progressBar.Step = 1;
             Cursor = Cursors.WaitCursor;

@@ -50,7 +50,7 @@
             resources.ApplyResources(this.btnClose, "btnClose");
             this.btnClose.Name = "btnClose";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // groupBoxJournal
             // 
@@ -71,7 +71,7 @@
             resources.ApplyResources(this.btnOpenJournal, "btnOpenJournal");
             this.btnOpenJournal.Name = "btnOpenJournal";
             this.btnOpenJournal.UseVisualStyleBackColor = true;
-            this.btnOpenJournal.Click += new System.EventHandler(this.btnOpenJournal_Click);
+            this.btnOpenJournal.Click += new System.EventHandler(this.BtnOpenJournal_Click);
             // 
             // groupBoxBalance
             // 
@@ -92,14 +92,14 @@
             resources.ApplyResources(this.btnOpenBalance, "btnOpenBalance");
             this.btnOpenBalance.Name = "btnOpenBalance";
             this.btnOpenBalance.UseVisualStyleBackColor = true;
-            this.btnOpenBalance.Click += new System.EventHandler(this.btnOpenBalance_Click);
+            this.btnOpenBalance.Click += new System.EventHandler(this.BtnOpenBalance_Click);
             // 
             // btnMerge
             // 
             resources.ApplyResources(this.btnMerge, "btnMerge");
             this.btnMerge.Name = "btnMerge";
             this.btnMerge.UseVisualStyleBackColor = true;
-            this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
+            this.btnMerge.Click += new System.EventHandler(this.BtnMerge_Click);
             // 
             // openFileDialog
             // 
