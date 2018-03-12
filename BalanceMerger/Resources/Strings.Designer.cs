@@ -70,11 +70,38 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Failure.
+        /// </summary>
+        internal static string stFailure {
+            get {
+                return ResourceManager.GetString("stFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Processing....
         /// </summary>
         internal static string stProcess {
             get {
                 return ResourceManager.GetString("stProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Success.
+        /// </summary>
+        internal static string stSuccess {
+            get {
+                return ResourceManager.GetString("stSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Need check.
+        /// </summary>
+        internal static string stWarning {
+            get {
+                return ResourceManager.GetString("stWarning", resourceCulture);
             }
         }
     }

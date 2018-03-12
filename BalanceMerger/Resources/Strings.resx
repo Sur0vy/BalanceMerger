@@ -120,7 +120,16 @@
   <data name="stDone" xml:space="preserve">
     <value>Success!</value>
   </data>
+  <data name="stFailure" xml:space="preserve">
+    <value>Failure</value>
+  </data>
   <data name="stProcess" xml:space="preserve">
     <value>Processing...</value>
+  </data>
+  <data name="stSuccess" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="stWarning" xml:space="preserve">
+    <value>Need check</value>
   </data>
 </root>

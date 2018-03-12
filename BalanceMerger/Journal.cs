@@ -15,6 +15,28 @@ namespace BalanceMerger
             items = new List<JournalItem>();
         }
 
+        public int itemsCount()
+        {
+            return items.Count;
+        }
+
+        public int HasItem(string name, double rest)
+        {
+            int index;
+            for (int i = 0; i < items.Count - 1; i++)
+            {
+                index = items[i].Description.IndexOf(name);
+                if (index > -1)
+                    return i;
+            }
+            return -1;
+        }
+
+        public JournalItem GetItem(int index)
+        {
+            return items[index];
+        }
+
         private bool loadFromXLS()
         {
             Excel.Application objExcel = new Excel.Application();

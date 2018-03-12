@@ -63,10 +63,11 @@ namespace BalanceMerger
 
         private void checkSourceData()
         {
-            if ((balance != null) & (journal != null))
-            {
-                btnMerge.Enabled = true;   
-            }
+            if ((balance != null) & (journal != null))            
+                if ((balance.itemsCount() > 0) & (journal.itemsCount() > 0))
+                {
+                    btnMerge.Enabled = true;   
+                }
         }
 
         private void btnOpenBalance_Click(object sender, EventArgs e)
@@ -79,11 +80,8 @@ namespace BalanceMerger
         }
 
         private void MergeBalance()
-        {
-            lblStatus.Text = Resources.Strings.stProcess;
-            progressBar.Maximum = balance.itemsCount();
-            progressBar.Value = 0;
-            progressBar.Step = 1;
+        {            
+            StartProcess();
 
             var processor = new Merger(balance, journal);
             processor.Progress += ProcessorProgress;
@@ -102,9 +100,34 @@ namespace BalanceMerger
                 progressBar.Value = progress;
                 if (progress == progressBar.Maximum)
                 {
-                    lblStatus.Text = Resources.Strings.stDone;
+                    StopProcess();
                 }
             }
         }
+
+        private void StopProcess()
+        {
+            lblStatus.Text = Resources.Strings.stDone;
+            Cursor = Cursors.Default;
+            btnClose.Enabled = true;
+            btnMerge.Enabled = true;
+            btnOpenBalance.Enabled = true;
+            btnOpenJournal.Enabled = true;
+        }
+
+        private void StartProcess()
+        {
+            lblStatus.Text = Resources.Strings.stProcess;
+            progressBar.Maximum = balance.itemsCount() - 1;
+            progressBar.Value = 0;
+            progressBar.Step = 1;
+            Cursor = Cursors.WaitCursor;
+            btnClose.Enabled = false;
+            btnMerge.Enabled = false;
+            btnOpenBalance.Enabled = false;
+            btnOpenJournal.Enabled = false;
+        }
+
+
     }
 }

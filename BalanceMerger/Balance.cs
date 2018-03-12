@@ -20,6 +20,11 @@ namespace BalanceMerger
             return items.Count;
         }
 
+        public BalanceItem GetItem(int index)
+        {
+            return items[index];
+        }
+
         private bool loadFromXLS()
         {
             Excel.Application objExcel = new Excel.Application();

@@ -126,6 +126,7 @@
             this.Controls.Add(this.groupBoxBalance);
             this.Controls.Add(this.groupBoxJournal);
             this.Controls.Add(this.btnClose);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Name = "FrmMain";
             this.groupBoxJournal.ResumeLayout(false);

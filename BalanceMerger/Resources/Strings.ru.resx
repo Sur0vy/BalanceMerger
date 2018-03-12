@@ -120,7 +120,16 @@
   <data name="stDone" xml:space="preserve">
     <value>Успешно!</value>
   </data>
+  <data name="stFailure" xml:space="preserve">
+    <value>Нет данных</value>
+  </data>
   <data name="stProcess" xml:space="preserve">
     <value>Обработка...</value>
+  </data>
+  <data name="stSuccess" xml:space="preserve">
+    <value>Успешно</value>
+  </data>
+  <data name="stWarning" xml:space="preserve">
+    <value>Требуется уточнение</value>
   </data>
 </root>

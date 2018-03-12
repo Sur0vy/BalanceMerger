@@ -25,10 +25,24 @@ namespace BalanceMerger
 
         public void DoMerge()
         {
-            for (int i = 1; i <= balance.itemsCount(); ++i)
+            BalanceItem bi;
+            int index;
+            for (int i = 1; i <= balance.itemsCount() - 1; ++i)
             {
-                Thread.Sleep(100);
+                bi = balance.GetItem(i);
+                index = journal.HasItem(bi.Description, bi.Rest);
+                if (index != -1)
+                {
+                    bi.Document = journal.GetItem(index).Document;
+                    bi.Comment = Resources.Strings.stSuccess;
+                }
+                else
+                {
+                    bi.Comment = Resources.Strings.stFailure;
+                }
+                
                 Progress?.Invoke(i);
+                Thread.Sleep(0);
             }
         }
     }    

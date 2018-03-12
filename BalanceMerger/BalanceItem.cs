@@ -2,7 +2,7 @@
 
 namespace BalanceMerger
 {
-    class BalanceItem : IEquatable<BalanceItem>
+    public class BalanceItem : IEquatable<BalanceItem>
     {
         private string bill;
         private string name;
@@ -10,6 +10,7 @@ namespace BalanceMerger
         private int count;
         private string description;
         private string document;
+        private string comment;
 
         public string Bill
         {
@@ -102,6 +103,8 @@ namespace BalanceMerger
                 document = value;
             }
         }
+
+        public string Comment { get => comment; set => comment = value; }
 
         public override bool Equals(object obj)
         {

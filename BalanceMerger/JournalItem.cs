@@ -2,7 +2,7 @@
 
 namespace BalanceMerger
 {
-    class JournalItem : IEquatable<JournalItem>
+    public class JournalItem : IEquatable<JournalItem>
     {
         private double rest;
         private string description;
