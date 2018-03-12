@@ -26,21 +26,26 @@ namespace BalanceMerger
         public void DoMerge()
         {
             BalanceItem bi;
-            int index;
             for (int i = 1; i <= balance.ItemsCount() - 1; ++i)
             {
                 bi = balance.GetItem(i);
-                index = journal.HasItem(bi.Description, bi.Rest);
-                if (index != -1)
+                ItemState itemState;
+                List<int> indexes = new List<int>();
+                itemState = journal.HasItem(bi.Description, bi.Rest, ref indexes);
+
+                switch (itemState)
                 {
-                    bi.Document = journal.GetItem(index).Document;
-                    bi.Comment = Resources.Strings.stSuccess;
+                    case ItemState.isFound:
+                        bi.Document = journal.GetItem(indexes[0]).Document;
+                        bi.Comment = Resources.Strings.stSuccess;
+                        break;                    
+                    case ItemState.isCollect:
+
+                        break;
+                    default:
+                        bi.Comment = Resources.Strings.stFailure;
+                        break;
                 }
-                else
-                {
-                    bi.Comment = Resources.Strings.stFailure;
-                }
-                
                 Progress?.Invoke(i);
                 Thread.Sleep(0);
             }

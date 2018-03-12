@@ -20,16 +20,31 @@ namespace BalanceMerger
             return items.Count;
         }
 
-        public int HasItem(string name, double rest)
+        public ItemState HasItem(string name, double rest, ref List<int> indexes)
         {
             int index;
             for (int i = 0; i < items.Count - 1; i++)
             {
                 index = items[i].Description.IndexOf(name);
                 if (index > -1)
-                    return i;
+                {
+                    indexes.Add(i);
+                    //itemState = ItemState.isFound;
+                    //return i;
+                }
             }
-            return -1;
+            if (indexes.Count == 0)
+            {                
+                return ItemState.isMissing;
+            }
+            else if (indexes.Count == 1)
+            {
+                return ItemState.isFound;                
+            }
+            else
+            {
+                return ItemState.isCollect;
+            }            
         }
 
         public JournalItem GetItem(int index)
