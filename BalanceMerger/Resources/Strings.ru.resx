@@ -123,8 +123,23 @@
   <data name="stFailure" xml:space="preserve">
     <value>Нет данных</value>
   </data>
+  <data name="stFilterXls" xml:space="preserve">
+    <value>Файлы Excel (*.xls)|*.xls</value>
+  </data>
+  <data name="stMerge" xml:space="preserve">
+    <value>-обработано</value>
+  </data>
+  <data name="stOpenBHeader" xml:space="preserve">
+    <value>Открыть файл остатков</value>
+  </data>
+  <data name="stOpenJHeader" xml:space="preserve">
+    <value>Открыть журнал</value>
+  </data>
   <data name="stProcess" xml:space="preserve">
     <value>Обработка...</value>
+  </data>
+  <data name="stSaveHeader" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
   <data name="stSuccess" xml:space="preserve">
     <value>Успешно</value>

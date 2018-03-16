@@ -27,17 +27,14 @@ namespace BalanceMerger
 
         private bool LoadFromXLS()
         {
-            Excel.Application objExcel = new Excel.Application();
+            Excel.Application application = new Excel.Application
+            {
+                Visible = false
+            };
             try
             {
-                Excel.Workbook objWorkbook;
                 Excel.Worksheet objWorksheet;
-
-                objExcel.Visible = false;
-                objExcel.Workbooks.Open(fileName);
-
-                objWorkbook = objExcel.ActiveWorkbook;
-                objWorksheet = (Excel.Worksheet)objWorkbook.ActiveSheet;
+                objWorksheet = GetActiveSheet(application, fileName);            
 
                 int row = FindRow(objWorksheet);
                 if (row == -1)
@@ -118,7 +115,7 @@ namespace BalanceMerger
             }
             finally
             {
-                objExcel.Quit();
+                application.Quit();
             }
         }
 
@@ -185,8 +182,40 @@ namespace BalanceMerger
 
         public bool Save(string fileName)
         {
+            Excel.Application application = new Excel.Application
+            {
+                Visible = false
+            };
+            try
+            {
+                Excel.Worksheet objWorksheet;
+                objWorksheet = GetActiveSheet(application, this.fileName);
+
+                //Excel.Worksheet WorkSheet = ((Excel.Worksheet)application.ActiveWorkbook.Worksheets[3]);
+                //WorkSheet.Copy(objWorksheet);
+                //application.ActiveWorkbook.SaveAs(fileName);
+
+                //Excel.Workbook Workbook = application.Workbooks.Add();
+                //Excel.Worksheet WorkSheet = (Excel.Worksheet)Workbook.Worksheets.Add();
+
+                //application.ActiveWorkbook.SaveAs(fileName);
+
+                //Excel.Worksheet objWorksheetSave;
+                //objWorksheetSave = GetActiveSheet(application, fileName);
+                //objWorksheetSave.Copy(objWorksheet);
+            }
+            finally
+            {
+                application.Quit();
+            }
 
             return true;
+        }
+
+        private Excel.Worksheet GetActiveSheet(Excel.Application objExcel,  string fileName)
+        {
+            objExcel.Workbooks.Open(fileName);
+            return (Excel.Worksheet)objExcel.ActiveWorkbook.Worksheets[1];
         }
     }
 }

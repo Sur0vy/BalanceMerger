@@ -79,11 +79,56 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Excel files (*.xls)|*.xls.
+        /// </summary>
+        internal static string stFilterXls {
+            get {
+                return ResourceManager.GetString("stFilterXls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на -merged.
+        /// </summary>
+        internal static string stMerge {
+            get {
+                return ResourceManager.GetString("stMerge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open balance.
+        /// </summary>
+        internal static string stOpenBHeader {
+            get {
+                return ResourceManager.GetString("stOpenBHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open journal.
+        /// </summary>
+        internal static string stOpenJHeader {
+            get {
+                return ResourceManager.GetString("stOpenJHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Processing....
         /// </summary>
         internal static string stProcess {
             get {
                 return ResourceManager.GetString("stProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Save.
+        /// </summary>
+        internal static string stSaveHeader {
+            get {
+                return ResourceManager.GetString("stSaveHeader", resourceCulture);
             }
         }
         

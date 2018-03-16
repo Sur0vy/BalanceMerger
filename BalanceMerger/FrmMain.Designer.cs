@@ -101,10 +101,6 @@
             this.btnMerge.UseVisualStyleBackColor = true;
             this.btnMerge.Click += new System.EventHandler(this.BtnMerge_Click);
             // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
             // progressBar
             // 
             resources.ApplyResources(this.progressBar, "progressBar");
@@ -129,6 +125,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Name = "FrmMain";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.groupBoxJournal.ResumeLayout(false);
             this.groupBoxBalance.ResumeLayout(false);
             this.ResumeLayout(false);

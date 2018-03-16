@@ -123,8 +123,23 @@
   <data name="stFailure" xml:space="preserve">
     <value>Failure</value>
   </data>
+  <data name="stFilterXls" xml:space="preserve">
+    <value>Excel files (*.xls)|*.xls</value>
+  </data>
+  <data name="stMerge" xml:space="preserve">
+    <value>-merged</value>
+  </data>
+  <data name="stOpenBHeader" xml:space="preserve">
+    <value>Open balance</value>
+  </data>
+  <data name="stOpenJHeader" xml:space="preserve">
+    <value>Open journal</value>
+  </data>
   <data name="stProcess" xml:space="preserve">
     <value>Processing...</value>
+  </data>
+  <data name="stSaveHeader" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="stSuccess" xml:space="preserve">
     <value>Success</value>

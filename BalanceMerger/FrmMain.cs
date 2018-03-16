@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace BalanceMerger
 {
@@ -26,6 +27,8 @@ namespace BalanceMerger
 
         private void BtnOpenJournal_Click(object sender, EventArgs e)
         {
+            openFileDialog.Title = Resources.Strings.stOpenJHeader;
+            openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 OpenJournal(openFileDialog.FileName);
@@ -40,7 +43,20 @@ namespace BalanceMerger
 
         private void BtnMerge_Click(object sender, EventArgs e)
         {
-            MergeBalance();
+            MergeBalance();                
+        }
+
+        private void SaveBalance()
+        {
+            Path.GetFileNameWithoutExtension(balance.fileName);
+            saveFileDialog.FileName = Path.GetFileName(balance.fileName) + Resources.Strings.stMerge;
+            saveFileDialog.Title = Resources.Strings.stSaveHeader;
+            saveFileDialog.Filter = Resources.Strings.stFilterXls;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                balance.Save(saveFileDialog.FileName);                
+            }
         }
 
         private void OpenBalance(string fileName)
@@ -72,6 +88,8 @@ namespace BalanceMerger
 
         private void BtnOpenBalance_Click(object sender, EventArgs e)
         {
+            openFileDialog.Title = Resources.Strings.stOpenBHeader;
+            openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 OpenBalance(openFileDialog.FileName);
@@ -101,6 +119,7 @@ namespace BalanceMerger
                 if (progress == progressBar.Maximum)
                 {
                     StopProcess();
+                    SaveBalance();
                 }
             }
         }
@@ -127,7 +146,5 @@ namespace BalanceMerger
             btnOpenBalance.Enabled = false;
             btnOpenJournal.Enabled = false;
         }
-
-
     }
 }
