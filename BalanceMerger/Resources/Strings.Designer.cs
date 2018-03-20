@@ -61,29 +61,29 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Balance not match.
+        /// </summary>
+        internal static string stBalanceDif {
+            get {
+                return ResourceManager.GetString("stBalanceDif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Collect string.
+        /// </summary>
+        internal static string stCollect {
+            get {
+                return ResourceManager.GetString("stCollect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Document.
         /// </summary>
-        internal static string sDoc {
+        internal static string stDoc {
             get {
-                return ResourceManager.GetString("sDoc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Balance.
-        /// </summary>
-        internal static string sSheetName {
-            get {
-                return ResourceManager.GetString("sSheetName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Status.
-        /// </summary>
-        internal static string sStatus {
-            get {
-                return ResourceManager.GetString("sStatus", resourceCulture);
+                return ResourceManager.GetString("stDoc", resourceCulture);
             }
         }
         
@@ -124,11 +124,11 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Tip.
+        ///   Ищет локализованную строку, похожую на Balance in journal: .
         /// </summary>
-        internal static string sTip {
+        internal static string stJournalDif {
             get {
-                return ResourceManager.GetString("sTip", resourceCulture);
+                return ResourceManager.GetString("stJournalDif", resourceCulture);
             }
         }
         
@@ -178,11 +178,38 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Balance.
+        /// </summary>
+        internal static string stSheetName {
+            get {
+                return ResourceManager.GetString("stSheetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Status.
+        /// </summary>
+        internal static string stStatus {
+            get {
+                return ResourceManager.GetString("stStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Success.
         /// </summary>
         internal static string stSuccess {
             get {
                 return ResourceManager.GetString("stSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Tip.
+        /// </summary>
+        internal static string stTip {
+            get {
+                return ResourceManager.GetString("stTip", resourceCulture);
             }
         }
         

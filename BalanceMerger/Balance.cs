@@ -46,13 +46,13 @@ namespace BalanceMerger
                 int iName = FindField(Helper.NAME, row, objWorksheet);
                 if (iName == -1)
                     return false;
-                int iCount = FindField(Helper.COUNT, row, objWorksheet);
+                int iCount = FindField(Helper.COUNT + " " + Helper.PER_END, row, objWorksheet);
                 if (iCount == -1)
                     return false;
                 int iDesc = FindField(Helper.DESC, row, objWorksheet);
                 if (iDesc == -1)
                     return false;
-                int iRest = FindField(Helper.REST, row, objWorksheet);
+                int iRest = FindField(Helper.REST + " " + Helper.PER_END, row, objWorksheet);
                 if (iRest == -1)
                     return false;
 
@@ -194,15 +194,10 @@ namespace BalanceMerger
                 application.Workbooks.Add(Missing.Value);
                 Excel.Sheets worksheets = application.Workbooks[application.Workbooks.Count].Worksheets;
                 Excel.Worksheet sheet = worksheets[1];
-                sheet.Name = Resources.Strings.sSheetName;
+                sheet.Name = Resources.Strings.stSheetName;
 
 
-                sheet.Name = Resources.Strings.sSheetName;
-                //if (FormatSheet(ref sheet))
-                //{
-                //    SaveData(ref sheet);
-                //    sheet.SaveAs(fileName);
-                //}   
+                sheet.Name = Resources.Strings.stSheetName;
 
                 SaveData(ref sheet);
                 sheet.SaveAs(fileName);
@@ -223,59 +218,49 @@ namespace BalanceMerger
             return (Excel.Worksheet)objExcel.ActiveWorkbook.Worksheets[1];
         }
 
-        //private Boolean FormatSheet(ref Excel.Worksheet sheet)
-        //{
-        //    int row = FindRow(sheet);
-        //    if (row == -1)
-        //        return false;
-        //    int i = FindField(Helper.CURRENCY_CODE, row, sheet);
-        //    if (i != -1)
-        //        sheet.Columns[i].Delete();
-        //    i = FindField(Helper.UNITS, row, sheet);
-        //    if (i != -1)
-        //        sheet.Columns[i].Delete();
-        //    sheet.Cells[row, Helper.F_FIELD] = Resources.Strings.sDoc;
-        //    sheet.Cells[row, Helper.G_FIELD] = Resources.Strings.sStatus;
-        //    sheet.Cells[row, Helper.H_FIELD] = Resources.Strings.sTip;
-        //    return true;
-        //}
-
         private void SaveData(ref Excel.Worksheet sheet)
         {
+            int skipCount = 0;
+            int row;
+
             MakeHeader(ref sheet);
-            for (int i = 2; i < ItemsCount(); i++)
-            {
-                string status = "";
-                BalanceItem balanceItem = GetItem(i - 2);
-                sheet.Cells[i, Helper.A_FIELD].NumberFormat = "@";
-                sheet.Cells[i, Helper.A_FIELD] = balanceItem.Bill;
-                sheet.Cells[i, Helper.B_FIELD] = balanceItem.Name;
-                sheet.Cells[i, Helper.C_FIELD] = balanceItem.Rest;
-                sheet.Cells[i, Helper.D_FIELD] = balanceItem.Count;
-                sheet.Cells[i, Helper.E_FIELD] = balanceItem.Description;
-                sheet.Cells[i, Helper.F_FIELD] = balanceItem.Document;
-                sheet.Cells[i, Helper.G_FIELD] = balanceItem.Comment;
-                sheet.Cells[i, Helper.H_FIELD] = status;
+            for (int i = 1; i <= ItemsCount(); i++)
+            {                
+                BalanceItem balanceItem = GetItem(i - 1);
+                if ((balanceItem.Count == 0) || (balanceItem.Rest == 0))
+                {
+                    skipCount++;
+                    continue;
+                }
+                row = i + 1 - skipCount;
+                sheet.Cells[row, Helper.A_FIELD].NumberFormat = "@";
+                sheet.Cells[row, Helper.A_FIELD] = balanceItem.Bill;
+                sheet.Cells[row, Helper.B_FIELD] = balanceItem.Name;
+                sheet.Cells[row, Helper.C_FIELD] = balanceItem.Rest;
+                sheet.Cells[row, Helper.D_FIELD] = balanceItem.Count;
+                sheet.Cells[row, Helper.E_FIELD] = balanceItem.Description;
+                sheet.Cells[row, Helper.F_FIELD] = balanceItem.Document;
+                sheet.Cells[row, Helper.G_FIELD] = BalanceItem.GetStatus(balanceItem);
+                sheet.Cells[row, Helper.G_FIELD].Interior.Color = BalanceItem.GetStatusColor(balanceItem);
+                sheet.Cells[row, Helper.H_FIELD] = balanceItem.Comment;
             }
-            sheet.Columns["A:H"].AutoFit();
-            //string r = "H" + ItemsCount();
-            //Excel.Range range1 = sheet.Range[r];
-            //sheet.Range["A1", range1].AutoFit();
+            sheet.Columns[Helper.A_FIELD + ":" + Helper.H_FIELD].AutoFit();            
         }
 
         private void MakeHeader(ref Excel.Worksheet sheet)
         {
             sheet.Cells[1, Helper.A_FIELD] = Helper.BILL;
             sheet.Cells[1, Helper.B_FIELD] = Helper.NAME;
-            sheet.Cells[1, Helper.C_FIELD] = Helper.REST;
-            sheet.Cells[1, Helper.D_FIELD] = Helper.COUNT;
+            sheet.Cells[1, Helper.C_FIELD] = Helper.REST + " " + Helper.PER_END; 
+            sheet.Cells[1, Helper.D_FIELD] = Helper.COUNT + " " + Helper.PER_END;
             sheet.Cells[1, Helper.E_FIELD] = Helper.DESC;
-            sheet.Cells[1, Helper.F_FIELD] = Resources.Strings.sDoc;
-            sheet.Cells[1, Helper.G_FIELD] = Resources.Strings.sStatus;
-            sheet.Cells[1, Helper.H_FIELD] = Resources.Strings.sTip;
-            //sheet.Cells[Helper.A_FIELD + "1", Helper.H_FIELD + "1"].EntireRow.Font.Bold = true;
+            sheet.Cells[1, Helper.F_FIELD] = Resources.Strings.stDoc;
+            sheet.Cells[1, Helper.G_FIELD] = Resources.Strings.stStatus;
+            sheet.Cells[1, Helper.H_FIELD] = Resources.Strings.stTip;            
             sheet.Rows["1"].EntireRow.Font.Bold = true;
         }
+
+
 
     }
 }

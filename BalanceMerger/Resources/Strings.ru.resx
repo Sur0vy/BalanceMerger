@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="sDoc" xml:space="preserve">
+  <data name="stDoc" xml:space="preserve">
     <value>Документ</value>
   </data>
-  <data name="sSheetName" xml:space="preserve">
+  <data name="stSheetName" xml:space="preserve">
     <value>Баланс</value>
   </data>
-  <data name="sStatus" xml:space="preserve">
+  <data name="stStatus" xml:space="preserve">
     <value>Статус</value>
   </data>
   <data name="stDone" xml:space="preserve">
@@ -138,7 +138,7 @@
   <data name="stFilterXlsx" xml:space="preserve">
     <value>Файлы Excel|*.xlsx</value>
   </data>
-  <data name="sTip" xml:space="preserve">
+  <data name="stTip" xml:space="preserve">
     <value>Примечание</value>
   </data>
   <data name="stMerge" xml:space="preserve">
@@ -161,5 +161,14 @@
   </data>
   <data name="stWarning" xml:space="preserve">
     <value>Требуется уточнение</value>
+  </data>
+  <data name="stBalanceDif" xml:space="preserve">
+    <value>Не совпадает остаток</value>
+  </data>
+  <data name="stCollect" xml:space="preserve">
+    <value>Объединённая строка</value>
+  </data>
+  <data name="stJournalDif" xml:space="preserve">
+    <value>Остаток в журнале: </value>
   </data>
 </root>

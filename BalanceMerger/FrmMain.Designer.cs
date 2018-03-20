@@ -41,6 +41,7 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.groupBoxJournal.SuspendLayout();
             this.groupBoxBalance.SuspendLayout();
             this.SuspendLayout();
@@ -112,10 +113,19 @@
             resources.ApplyResources(this.lblStatus, "lblStatus");
             this.lblStatus.Name = "lblStatus";
             // 
+            // btnAbout
+            // 
+            resources.ApplyResources(this.btnAbout, "btnAbout");
+            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnMerge);
@@ -147,6 +157,7 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Label lblStatus;
+        public System.Windows.Forms.Button btnAbout;
     }
 }
 

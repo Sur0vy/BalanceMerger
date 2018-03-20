@@ -10,8 +10,9 @@ namespace BalanceMerger
     {
         public const string BILL = "Счет";
         public const string NAME = "Артикул";
-        public const string REST = "Остаток на окончание периода";
-        public const string COUNT = "Количество на окончание периода";
+        public const string REST = "Остаток";
+        public const string COUNT = "Количество";
+        public const string PER_END = "на окончание периода";
         public const string DESC = "Номенклатура";
         public const string CONTENT = "Содержание";
         public const string DOC = "Документ";
@@ -24,6 +25,7 @@ namespace BalanceMerger
         public const string F_FIELD = "F";        
         public const string G_FIELD = "G";
         public const string H_FIELD = "H";
+        //Excel.XlRgbColor.rgbGreen;
 
 
         public const int TRY_COUNT = 10;

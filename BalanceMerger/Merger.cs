@@ -32,22 +32,32 @@ namespace BalanceMerger
                 ItemState itemState;
                 List<int> indexes = new List<int>();
                 itemState = journal.HasItem(bi.Description, bi.Rest, ref indexes);
-
+                bi.Status = itemState;
                 switch (itemState)
                 {
                     case ItemState.isFound:
-                        bi.Document = journal.GetItem(indexes[0]).Document;
-                        bi.Comment = Resources.Strings.stSuccess;
+                        bi.Document = journal.GetItem(indexes[0]).Document;                        
                         break;                    
                     case ItemState.isCollect:
-
+                        double b = 0;
+                        string comment = "";
+                        for (int ci = 0; ci < indexes.Count; ci++)
+                        {
+                            b = b + journal.GetItem(indexes[ci]).Rest;
+                            //b = b + journal.GetItem(indexes[ci]).Rest;
+                            comment = comment + journal.GetItem(indexes[ci]).Description;
+                        }
+                        bi.Rest = b;
+                        bi.Comment = comment;                        
                         break;
-                    default:
-                        bi.Comment = Resources.Strings.stFailure;
+                    case ItemState.isDifBalance:
+                        bi.Comment = Resources.Strings.stJournalDif + journal.GetItem(indexes[0]).Rest;
+                        break;
+                    default:                        
                         break;
                 }
                 Progress?.Invoke(i);
-                Thread.Sleep(0);
+                Thread.Sleep(10);
             }
         }
     }    

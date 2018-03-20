@@ -23,14 +23,12 @@ namespace BalanceMerger
         public ItemState HasItem(string name, double rest, ref List<int> indexes)
         {
             int index;
-            for (int i = 0; i < items.Count - 1; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 index = items[i].Description.IndexOf(name);
                 if (index > -1)
                 {
                     indexes.Add(i);
-                    //itemState = ItemState.isFound;
-                    //return i;
                 }
             }
             if (indexes.Count == 0)
@@ -39,10 +37,15 @@ namespace BalanceMerger
             }
             else if (indexes.Count == 1)
             {
-                return ItemState.isFound;                
+                /*проверим, вдруг сумма не сходится */
+                if (items[indexes[0]].Rest == rest)
+                    return ItemState.isFound;
+                else
+                    return ItemState.isDifBalance;
             }
             else
-            {
+            {  
+                
                 return ItemState.isCollect;
             }            
         }

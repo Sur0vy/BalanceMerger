@@ -145,5 +145,10 @@ namespace BalanceMerger
             btnOpenBalance.Enabled = false;
             btnOpenJournal.Enabled = false;
         }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            //AboutBox1.ActiveForm.Visible = true;
+        }
     }
 }

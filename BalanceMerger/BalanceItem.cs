@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace BalanceMerger
 {
@@ -10,6 +11,7 @@ namespace BalanceMerger
         private int count;
         private string description;
         private string document;
+        private ItemState status;
         private string comment;
 
         public string Bill
@@ -104,6 +106,8 @@ namespace BalanceMerger
             }
         }
 
+        public ItemState Status { get => status; set => status = value; }
+
         public string Comment { get => comment; set => comment = value; }
 
         public override bool Equals(object obj)
@@ -123,6 +127,34 @@ namespace BalanceMerger
         public override int GetHashCode()
         {
             return 0;
+        }
+
+        public static string GetStatus(BalanceItem balanceItem)
+        {
+            switch (balanceItem.status)
+            {
+                case ItemState.isFound:
+                    return Resources.Strings.stDone;
+                case ItemState.isMissing:
+                    return Resources.Strings.stFailure;
+                case ItemState.isCollect:
+                    return Resources.Strings.stCollect;
+                default:
+                    return Resources.Strings.stBalanceDif;
+            }
+        }
+
+        public static Color GetStatusColor(BalanceItem balanceItem)
+        {
+            switch (balanceItem.status)
+            {
+                case ItemState.isFound:
+                    return Color.LimeGreen;
+                case ItemState.isMissing:
+                    return Color.Red;
+                default:
+                    return Color.Yellow;
+            }
         }
     }
 }
