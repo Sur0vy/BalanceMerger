@@ -61,6 +61,33 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Document.
+        /// </summary>
+        internal static string sDoc {
+            get {
+                return ResourceManager.GetString("sDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Balance.
+        /// </summary>
+        internal static string sSheetName {
+            get {
+                return ResourceManager.GetString("sSheetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Status.
+        /// </summary>
+        internal static string sStatus {
+            get {
+                return ResourceManager.GetString("sStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Success!.
         /// </summary>
         internal static string stDone {
@@ -79,11 +106,29 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Excel files (*.xls)|*.xls.
+        ///   Ищет локализованную строку, похожую на Excel files|*.xls;*.xlsx.
         /// </summary>
         internal static string stFilterXls {
             get {
                 return ResourceManager.GetString("stFilterXls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Excel files|*.xlsx.
+        /// </summary>
+        internal static string stFilterXlsx {
+            get {
+                return ResourceManager.GetString("stFilterXlsx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Tip.
+        /// </summary>
+        internal static string sTip {
+            get {
+                return ResourceManager.GetString("sTip", resourceCulture);
             }
         }
         

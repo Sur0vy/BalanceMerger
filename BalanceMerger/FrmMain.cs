@@ -47,11 +47,10 @@ namespace BalanceMerger
         }
 
         private void SaveBalance()
-        {
-            Path.GetFileNameWithoutExtension(balance.fileName);
-            saveFileDialog.FileName = Path.GetFileName(balance.fileName) + Resources.Strings.stMerge;
+        {            
+            saveFileDialog.FileName = Path.GetFileNameWithoutExtension(balance.fileName) + Resources.Strings.stMerge;
             saveFileDialog.Title = Resources.Strings.stSaveHeader;
-            saveFileDialog.Filter = Resources.Strings.stFilterXls;
+            saveFileDialog.Filter = Resources.Strings.stFilterXlsx;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {

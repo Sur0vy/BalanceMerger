@@ -54,16 +54,19 @@ namespace BalanceMerger
 
         private bool LoadFromXLS()
         {
-            Excel.Application objExcel = new Excel.Application();
+            Excel.Application application = new Excel.Application
+            {
+                Visible = false
+            };
             try
             {
                 Excel.Workbook objWorkbook;
                 Excel.Worksheet objWorksheet;
 
-                objExcel.Visible = false;
-                objExcel.Workbooks.Open(fileName);
+                application.Visible = false;
+                application.Workbooks.Open(fileName);
 
-                objWorkbook = objExcel.ActiveWorkbook;
+                objWorkbook = application.ActiveWorkbook;
                 objWorksheet = (Excel.Worksheet)objWorkbook.ActiveSheet;
 
                 int row = FindRow(Helper.CONTENT, objWorksheet);
@@ -125,7 +128,8 @@ namespace BalanceMerger
             }
             finally
             {
-                objExcel.Quit();
+                application.Workbooks.Close();
+                application.Quit();
             }
         }
 

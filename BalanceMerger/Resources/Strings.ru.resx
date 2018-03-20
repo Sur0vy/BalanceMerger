@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="sDoc" xml:space="preserve">
+    <value>Документ</value>
+  </data>
+  <data name="sSheetName" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="sStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
   <data name="stDone" xml:space="preserve">
     <value>Успешно!</value>
   </data>
@@ -124,7 +133,13 @@
     <value>Нет данных</value>
   </data>
   <data name="stFilterXls" xml:space="preserve">
-    <value>Файлы Excel (*.xls)|*.xls</value>
+    <value>Файлы Excel|*.xls;*.xlsx</value>
+  </data>
+  <data name="stFilterXlsx" xml:space="preserve">
+    <value>Файлы Excel|*.xlsx</value>
+  </data>
+  <data name="sTip" xml:space="preserve">
+    <value>Примечание</value>
   </data>
   <data name="stMerge" xml:space="preserve">
     <value>-обработано</value>

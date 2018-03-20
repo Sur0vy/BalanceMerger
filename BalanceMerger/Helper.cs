@@ -15,7 +15,15 @@ namespace BalanceMerger
         public const string DESC = "Номенклатура";
         public const string CONTENT = "Содержание";
         public const string DOC = "Документ";
-        public const string AMOUNT = "Сумма";
+        public const string AMOUNT = "Сумма";        
+        public const string A_FIELD = "A";
+        public const string B_FIELD = "B";
+        public const string C_FIELD = "C";
+        public const string D_FIELD = "D";
+        public const string E_FIELD = "E";
+        public const string F_FIELD = "F";        
+        public const string G_FIELD = "G";
+        public const string H_FIELD = "H";
 
 
         public const int TRY_COUNT = 10;
