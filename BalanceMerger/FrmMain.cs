@@ -33,7 +33,14 @@ namespace BalanceMerger
             {
                 OpenJournal(openFileDialog.FileName);
                 CheckSourceData();
+                SkipProgress();
             }                
+        }
+
+        private void SkipProgress()
+        {
+            if (progressBar.Value != 0)
+            progressBar.Value = 0;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -93,6 +100,7 @@ namespace BalanceMerger
             {
                 OpenBalance(openFileDialog.FileName);
                 CheckSourceData();
+                SkipProgress();
             }
         }
 
