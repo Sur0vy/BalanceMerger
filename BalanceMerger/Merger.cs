@@ -40,15 +40,18 @@ namespace BalanceMerger
                         break;                    
                     case ItemState.isCollect:
                         double b = 0;
-                        string comment = "";
+                        //string comment = "";
                         for (int ci = 0; ci < indexes.Count; ci++)
                         {
                             b = b + journal.GetItem(indexes[ci]).Rest;
-                            //b = b + journal.GetItem(indexes[ci]).Rest;
-                            comment = comment + journal.GetItem(indexes[ci]).Description;
+                            if (bi.Document != "")
+                                bi.Document = bi.Document + " ";
+                            bi.Document = bi.Document + journal.GetItem(indexes[0]).Document;
+                            if (bi.Document != "")
+                                bi.Comment = bi.Comment + " ";
+                            bi.Comment = bi.Comment + journal.GetItem(indexes[ci]).Description;/* после этого нужно еще раз сравнить по сумме, если сходится, то одно, если нет, то не найдено*/
                         }
                         bi.Rest = b;
-                        bi.Comment = comment;                        
                         break;
                     case ItemState.isDifBalance:
                         bi.Comment = Resources.Strings.stJournalDif + journal.GetItem(indexes[0]).Rest;

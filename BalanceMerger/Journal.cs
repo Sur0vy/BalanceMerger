@@ -29,6 +29,8 @@ namespace BalanceMerger
                 if (index > -1)
                 {
                     indexes.Add(i);
+                    if (items[indexes[0]].Rest == rest)
+                        return ItemState.isFound;
                 }
             }
             if (indexes.Count == 0)
@@ -37,15 +39,10 @@ namespace BalanceMerger
             }
             else if (indexes.Count == 1)
             {
-                /*проверим, вдруг сумма не сходится */
-                if (items[indexes[0]].Rest == rest)
-                    return ItemState.isFound;
-                else
-                    return ItemState.isDifBalance;
+                return ItemState.isDifBalance;
             }
             else
-            {  
-                
+            {
                 return ItemState.isCollect;
             }            
         }
