@@ -259,8 +259,5 @@ namespace BalanceMerger
             sheet.Cells[1, Helper.H_FIELD] = Resources.Strings.stTip;            
             sheet.Rows["1"].EntireRow.Font.Bold = true;
         }
-
-
-
     }
 }

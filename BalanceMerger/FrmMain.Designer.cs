@@ -116,10 +116,10 @@
             // btnAbout
             // 
             resources.ApplyResources(this.btnAbout, "btnAbout");
-            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.UseVisualStyleBackColor = true;
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
             // 
             // FrmMain
             // 
@@ -157,7 +157,7 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Label lblStatus;
-        public System.Windows.Forms.Button btnAbout;
+        internal System.Windows.Forms.Button btnAbout;
     }
 }
 

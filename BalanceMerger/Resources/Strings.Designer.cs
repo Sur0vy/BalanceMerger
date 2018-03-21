@@ -61,6 +61,15 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на About {0}.
+        /// </summary>
+        internal static string stAbout {
+            get {
+                return ResourceManager.GetString("stAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Balance not match.
         /// </summary>
         internal static string stBalanceDif {
@@ -169,6 +178,15 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Designed by Sur0vy.
+        /// </summary>
+        internal static string stProgrammDescription {
+            get {
+                return ResourceManager.GetString("stProgrammDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Save.
         /// </summary>
         internal static string stSaveHeader {
@@ -210,6 +228,15 @@ namespace BalanceMerger.Resources {
         internal static string stTip {
             get {
                 return ResourceManager.GetString("stTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Version: {0}.
+        /// </summary>
+        internal static string stVersion {
+            get {
+                return ResourceManager.GetString("stVersion", resourceCulture);
             }
         }
         

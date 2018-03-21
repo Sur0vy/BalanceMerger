@@ -171,4 +171,13 @@
   <data name="stJournalDif" xml:space="preserve">
     <value>Остаток в журнале: </value>
   </data>
+  <data name="stAbout" xml:space="preserve">
+    <value>О программе {0}</value>
+  </data>
+  <data name="stProgrammDescription" xml:space="preserve">
+    <value>Разработал Sur0vy</value>
+  </data>
+  <data name="stVersion" xml:space="preserve">
+    <value>Версия: {0}</value>
+  </data>
 </root>

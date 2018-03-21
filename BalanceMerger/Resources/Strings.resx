@@ -171,4 +171,13 @@
   <data name="stJournalDif" xml:space="preserve">
     <value>Balance in journal: </value>
   </data>
+  <data name="stAbout" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="stVersion" xml:space="preserve">
+    <value>Version: {0}</value>
+  </data>
+  <data name="stProgrammDescription" xml:space="preserve">
+    <value>Designed by Sur0vy</value>
+  </data>
 </root>
