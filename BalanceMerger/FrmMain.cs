@@ -30,12 +30,24 @@ namespace BalanceMerger
             openFileDialog.Title = Resources.Strings.stOpenJHeader;
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {                
+            {
+                //this.Cursor = Cursors.WaitCursor;
+                //Thread openJ = new Thread(new ParameterizedThreadStart(OpenJThread));
+                //openJ.Start();
                 OpenJournal(openFileDialog.FileName);
                 CheckSourceData();
                 SkipProgress();
+                //this.Cursor = Cursors.Default;
             }                
         }
+
+        //private void OpenJThread()
+        //{
+        //    OpenJournal(openFileDialog.FileName);
+        //    CheckSourceData();
+        //    SkipProgress();
+        //    this.Cursor = Cursors.Default;
+        //}
 
         private void SkipProgress()
         {
@@ -98,9 +110,11 @@ namespace BalanceMerger
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                this.Cursor = Cursors.WaitCursor;
                 OpenBalance(openFileDialog.FileName);
                 CheckSourceData();
                 SkipProgress();
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -146,7 +160,7 @@ namespace BalanceMerger
             lblStatus.Text = Resources.Strings.stProcess;
             progressBar.Maximum = balance.ItemsCount() - 1;
             progressBar.Value = 0;
-            progressBar.Step = 1;
+            progressBar.Step = 1;            
             Cursor = Cursors.WaitCursor;
             btnClose.Enabled = false;
             btnMerge.Enabled = false;
@@ -159,5 +173,6 @@ namespace BalanceMerger
             FrmAbout about = new FrmAbout();            
             about.ShowDialog();
         }
+        
     }
 }
