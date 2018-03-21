@@ -43,7 +43,19 @@ namespace BalanceMerger
             }
             else
             {
-                return ItemState.isCollect;
+                double b = 0;
+                for (int i = 0; i < indexes.Count; i++)
+                {
+                    b = b + GetItem(indexes[i]).Rest;
+                }
+                if (b == rest)
+                {
+                    return ItemState.isCollect;
+                }
+                else
+                {
+                    return ItemState.isCollectMissing;
+                }
             }            
         }
 

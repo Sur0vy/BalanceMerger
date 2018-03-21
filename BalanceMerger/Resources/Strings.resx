@@ -127,7 +127,7 @@
     <value>Status</value>
   </data>
   <data name="stDone" xml:space="preserve">
-    <value>Success!</value>
+    <value>Success</value>
   </data>
   <data name="stFailure" xml:space="preserve">
     <value>Failure</value>
@@ -179,5 +179,8 @@
   </data>
   <data name="stProgrammDescription" xml:space="preserve">
     <value>Designed by Sur0vy</value>
+  </data>
+  <data name="stCollectMissing" xml:space="preserve">
+    <value>Multiple matches</value>
   </data>
 </root>

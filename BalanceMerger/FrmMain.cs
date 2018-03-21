@@ -30,7 +30,7 @@ namespace BalanceMerger
             openFileDialog.Title = Resources.Strings.stOpenJHeader;
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
+            {                
                 OpenJournal(openFileDialog.FileName);
                 CheckSourceData();
                 SkipProgress();

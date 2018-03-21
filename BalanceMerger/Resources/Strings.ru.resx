@@ -127,7 +127,7 @@
     <value>Статус</value>
   </data>
   <data name="stDone" xml:space="preserve">
-    <value>Успешно!</value>
+    <value>Успешно</value>
   </data>
   <data name="stFailure" xml:space="preserve">
     <value>Нет данных</value>
@@ -179,5 +179,8 @@
   </data>
   <data name="stVersion" xml:space="preserve">
     <value>Версия: {0}</value>
+  </data>
+  <data name="stCollectMissing" xml:space="preserve">
+    <value>Несколько совпадений </value>
   </data>
 </root>

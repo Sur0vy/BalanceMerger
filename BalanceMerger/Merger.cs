@@ -36,22 +36,27 @@ namespace BalanceMerger
                 switch (itemState)
                 {
                     case ItemState.isFound:
-                        bi.Document = journal.GetItem(indexes[0]).Document;                        
+                        bi.Document = journal.GetItem(indexes[0]).Document;
                         break;                    
-                    case ItemState.isCollect:
-                        double b = 0;
-                        //string comment = "";
-                        for (int ci = 0; ci < indexes.Count; ci++)
-                        {
-                            b = b + journal.GetItem(indexes[ci]).Rest;
+                    case ItemState.isCollect:                        
+                        for (int j = 0; j < indexes.Count; j++)
+                        {                            
                             if (bi.Document != "")
                                 bi.Document = bi.Document + " ";
-                            bi.Document = bi.Document + journal.GetItem(indexes[0]).Document;
-                            if (bi.Document != "")
+                            bi.Document = bi.Document + journal.GetItem(indexes[j]).Document;
+                            if (bi.Comment != "")
                                 bi.Comment = bi.Comment + " ";
-                            bi.Comment = bi.Comment + journal.GetItem(indexes[ci]).Description;/* после этого нужно еще раз сравнить по сумме, если сходится, то одно, если нет, то не найдено*/
-                        }
-                        bi.Rest = b;
+                            bi.Comment = bi.Comment + journal.GetItem(indexes[j]).Description;
+                        }                        
+                        break;
+                    case ItemState.isCollectMissing:
+                        for (int j = 0; j < indexes.Count; j++)
+                        {                            
+                            if (bi.Comment != "")
+                                bi.Comment = bi.Comment + " ";
+                            bi.Comment = bi.Comment + journal.GetItem(indexes[j]).Description + " (" +
+                                                      journal.GetItem(indexes[j]).Rest.ToString() + ")";
+                        }                        
                         break;
                     case ItemState.isDifBalance:
                         bi.Comment = Resources.Strings.stJournalDif + journal.GetItem(indexes[0]).Rest;

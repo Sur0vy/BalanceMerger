@@ -135,10 +135,12 @@ namespace BalanceMerger
             {
                 case ItemState.isFound:
                     return Resources.Strings.stDone;
-                case ItemState.isMissing:
-                    return Resources.Strings.stFailure;
                 case ItemState.isCollect:
                     return Resources.Strings.stCollect;
+                case ItemState.isMissing:
+                    return Resources.Strings.stFailure;
+                case ItemState.isCollectMissing:
+                    return Resources.Strings.stCollectMissing;
                 default:
                     return Resources.Strings.stBalanceDif;
             }
@@ -149,9 +151,13 @@ namespace BalanceMerger
             switch (balanceItem.status)
             {
                 case ItemState.isFound:
+                    return Color.LightGreen;
+                case ItemState.isCollect:
                     return Color.LimeGreen;
                 case ItemState.isMissing:
                     return Color.Red;
+                case ItemState.isCollectMissing:
+                    return Color.LightPink;
                 default:
                     return Color.Yellow;
             }

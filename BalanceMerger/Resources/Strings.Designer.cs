@@ -88,6 +88,15 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Multiple matches.
+        /// </summary>
+        internal static string stCollectMissing {
+            get {
+                return ResourceManager.GetString("stCollectMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Document.
         /// </summary>
         internal static string stDoc {
@@ -97,7 +106,7 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Success!.
+        ///   Ищет локализованную строку, похожую на Success.
         /// </summary>
         internal static string stDone {
             get {

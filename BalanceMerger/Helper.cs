@@ -32,5 +32,5 @@ namespace BalanceMerger
 
     }
 
-    public enum ItemState {isFound, isMissing, isCollect, isDifBalance};
+    public enum ItemState {isFound, isMissing, isCollect, isCollectMissing, isDifBalance };
 }
