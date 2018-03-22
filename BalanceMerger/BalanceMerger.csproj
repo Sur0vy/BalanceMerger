@@ -7,7 +7,7 @@
     <ProjectGuid>{B9334BBD-8D43-42C8-88EC-A4260C5E1418}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BalanceMerger</RootNamespace>
-    <AssemblyName>BalanceMerger</AssemblyName>
+    <AssemblyName>Списание материалов</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

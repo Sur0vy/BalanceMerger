@@ -15,7 +15,7 @@ namespace BalanceMerger
 {
     public partial class FrmMain : Form
     {
-        Excel.Application application = null;// new Excel.Application();
+        Excel.Application application = null;
 
         private Balance balance;
 
@@ -23,8 +23,8 @@ namespace BalanceMerger
 
         public FrmMain()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
-            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Helper.LANGUAGE);
+            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Helper.LANGUAGE);
             InitializeComponent();
             this.Icon = Properties.Resources.BalanceMerger;
         }

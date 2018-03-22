@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("BalanceMerger")]
+[assembly: AssemblyTitle("Списание материалов")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BalanceMerger")]
+[assembly: AssemblyProduct("Списание материалов")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 //
 // Можно задать все значения или принять номер сборки и номер редакции по умолчанию.
 // используя "*", как показано ниже:
-[assembly: AssemblyVersion("1.0.6.20")]
-[assembly: AssemblyFileVersion("1.0.6.20")]
+[assembly: AssemblyVersion("1.0.7.21")]
+[assembly: AssemblyFileVersion("1.0.7.21")]
 [assembly: NeutralResourcesLanguage("en")]
 
