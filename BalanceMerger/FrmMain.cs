@@ -22,7 +22,8 @@ namespace BalanceMerger
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
             System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
-            InitializeComponent();
+            InitializeComponent();                       
+            this.Icon = Properties.Resources.BalanceMerger;
         }
 
         private void BtnOpenJournal_Click(object sender, EventArgs e)
