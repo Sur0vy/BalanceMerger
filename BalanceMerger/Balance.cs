@@ -7,11 +7,13 @@ namespace BalanceMerger
 {
     public class Balance
     {
+        private Excel.Application application = null;
         public string fileName;
         private List<BalanceItem> items;
 
-        public Balance()
+        public Balance(Excel.Application application)
         {
+            this.application = application;
             this.fileName = "";
             items = new List<BalanceItem>();
         }
@@ -28,10 +30,6 @@ namespace BalanceMerger
 
         private bool LoadFromXLS()
         {
-            Excel.Application application = new Excel.Application
-            {
-                Visible = false
-            };
             try
             {
                 Excel.Worksheet objWorksheet;
@@ -116,8 +114,7 @@ namespace BalanceMerger
             }
             finally
             {
-                //application.Workbooks.Close();
-                application.Quit();
+                application.Workbooks.Close();
             }
         }
 
@@ -184,10 +181,6 @@ namespace BalanceMerger
 
         public bool Save(string fileName)
         {
-            Excel.Application application = new Excel.Application
-            {
-                Visible = false
-            };
             try
             {
                 application.SheetsInNewWorkbook = 1;
@@ -195,17 +188,12 @@ namespace BalanceMerger
                 Excel.Sheets worksheets = application.Workbooks[application.Workbooks.Count].Worksheets;
                 Excel.Worksheet sheet = worksheets[1];
                 sheet.Name = Resources.Strings.stSheetName;
-
-                sheet.Name = Resources.Strings.stSheetName;
-
                 SaveData(ref sheet);
                 sheet.SaveAs(fileName);
-
             }
             finally
             {
                 application.Workbooks.Close();
-                application.Quit();
             }
 
             return true;

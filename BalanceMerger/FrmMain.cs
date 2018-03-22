@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BalanceMerger
 {
     public partial class FrmMain : Form
     {
+        Excel.Application application = null;// new Excel.Application();
+
         private Balance balance;
 
         private Journal journal;
@@ -32,7 +35,8 @@ namespace BalanceMerger
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                journal = new Journal();
+                CreateExcel();
+                journal = new Journal(application);
                 Thread openJ = new Thread(OpenJournal);
                 openJ.Start();
             }
@@ -40,7 +44,11 @@ namespace BalanceMerger
 
         private void SkipProgress()
         {
-            if (progressBar.Value != 0)
+            SetLabelText(lblStatus, "");
+
+            if (progressBar.InvokeRequired)
+                progressBar.BeginInvoke(new Action<int>((value) => progressBar.Value = value), 0);
+            else
                 progressBar.Value = 0;
         }
 
@@ -107,12 +115,17 @@ namespace BalanceMerger
                 button.Enabled = state;
         }
 
-        private void DoAfterOpen(Label label, string fileName)
+        private void SetLabelText(Label label, string text)
         {
             if (label.InvokeRequired)
-                label.BeginInvoke(new Action<string>((s) => label.Text = s), fileName);
+                label.BeginInvoke(new Action<string>((s) => label.Text = s), text);
             else
-                label.Text = fileName;
+                label.Text = text;
+        }
+
+        private void DoAfterOpen(Label label, string fileName)
+        {
+            SetLabelText(label, fileName);
             CheckSourceData();
             SkipProgress();
         }
@@ -133,7 +146,8 @@ namespace BalanceMerger
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                balance = new Balance();
+                CreateExcel();
+                balance = new Balance(application);
                 Thread openB = new Thread(OpenBalance);
                 openB.Start();
             }            
@@ -185,7 +199,23 @@ namespace BalanceMerger
         {
             FrmAbout about = new FrmAbout();            
             about.ShowDialog();
-        }     
+        }  
         
+        private void CreateExcel()
+        {
+            if (application == null)
+            {
+                application = new Excel.Application
+                {
+                    Visible = false
+                };
+            };
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (application != null)
+            application.Quit();
+        }
     }
 }

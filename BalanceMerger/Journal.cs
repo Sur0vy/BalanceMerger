@@ -6,11 +6,13 @@ namespace BalanceMerger
 {
     public class Journal
     {
+        private Excel.Application application = null;
         public string fileName;
         private List<JournalItem> items;
 
-        public Journal()
+        public Journal(Excel.Application application)
         {
+            this.application = application;
             this.fileName = "";
             items = new List<JournalItem>();
         }
@@ -66,10 +68,6 @@ namespace BalanceMerger
 
         private bool LoadFromXLS()
         {
-            Excel.Application application = new Excel.Application
-            {
-                Visible = false
-            };
             try
             {
                 Excel.Workbook objWorkbook;
@@ -141,7 +139,6 @@ namespace BalanceMerger
             finally
             {
                 application.Workbooks.Close();
-                application.Quit();
             }
         }
 

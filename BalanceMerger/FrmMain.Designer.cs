@@ -136,6 +136,7 @@
             this.DoubleBuffered = true;
             this.Name = "FrmMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.groupBoxJournal.ResumeLayout(false);
             this.groupBoxBalance.ResumeLayout(false);
             this.ResumeLayout(false);

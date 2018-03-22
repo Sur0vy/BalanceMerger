@@ -65,7 +65,7 @@ namespace BalanceMerger
                         break;
                 }
                 Progress?.Invoke(i);
-                Thread.Sleep(10);
+                Thread.Sleep(5);
             }
         }
     }    
