@@ -183,4 +183,7 @@
   <data name="stCollectMissing" xml:space="preserve">
     <value>Multiple matches</value>
   </data>
+  <data name="stNoFile" xml:space="preserve">
+    <value>...</value>
+  </data>
 </root>

@@ -160,6 +160,15 @@ namespace BalanceMerger.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ....
+        /// </summary>
+        internal static string stNoFile {
+            get {
+                return ResourceManager.GetString("stNoFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Open balance.
         /// </summary>
         internal static string stOpenBHeader {

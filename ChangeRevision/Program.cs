@@ -16,21 +16,21 @@ namespace ChangeRevision
         {
             try
             {
-                const string GIT = "\"c:\\Program Files (x86)\\Git\\cmd\\git.exe\"";
+                //const string GIT = "\"c:\\Program Files (x86)\\Git\\cmd\\git.exe\"";
                 const string GIT64 = "\"c:\\Program Files\\Git\\cmd\\git.exe\"";
 
-                string git;
-                if (args[1] == "64")
-                {
-                    git = GIT64;
-                }
-                else
-                {
-                    git = GIT;
-                }
-                    Process process = new Process();
+                //string git;
+                //if (args[3] == "32")
+                //{
+                //    git = GIT;
+                //}
+                //else
+                //{
+                //    git = GIT64;
+                //}
+                Process process = new Process();
                 process.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
-                process.StartInfo.FileName = git;
+                process.StartInfo.FileName = GIT64;                
                 process.StartInfo.Arguments = @"rev-list master --count";
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;

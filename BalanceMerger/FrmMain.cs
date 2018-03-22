@@ -81,6 +81,11 @@ namespace BalanceMerger
             {
                 DoAfterOpen(labelBalance, balance.fileName);
             }
+            else
+            {
+                balance = null;
+                DoAfterOpen(labelBalance, Resources.Strings.stNoFile);
+            }
             ChangeCursor(Cursors.Default);
         }
 
@@ -90,6 +95,11 @@ namespace BalanceMerger
             if (journal.LoadFromFile(openFileDialog.FileName))
             {
                 DoAfterOpen(labelJournal, journal.fileName);
+            }
+            else
+            {
+                journal = null;    
+                DoAfterOpen(labelJournal, Resources.Strings.stNoFile);
             }
             ChangeCursor(Cursors.Default);
         }

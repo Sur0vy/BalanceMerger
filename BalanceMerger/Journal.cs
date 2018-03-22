@@ -176,9 +176,9 @@ namespace BalanceMerger
                         iCol = 1;
                     }
                     col++;
-                }
+                }                
                 row++;
-                value = workSheet.Cells[iRow, 1].Text.ToString();
+                value = workSheet.Cells[row, 1].Text;                
                 if (value.Equals(""))
                 {
                     iRow++;
