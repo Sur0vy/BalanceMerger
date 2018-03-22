@@ -142,7 +142,7 @@ namespace BalanceMerger
         private void BtnOpenBalance_Click(object sender, EventArgs e)
         {
 
-            openFileDialog.Title = Resources.Strings.stOpenJHeader;
+            openFileDialog.Title = Resources.Strings.stOpenBHeader;
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
