@@ -22,7 +22,7 @@ namespace BalanceMerger
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
             System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
-            InitializeComponent();                       
+            InitializeComponent();
             this.Icon = Properties.Resources.BalanceMerger;
         }
 
@@ -32,28 +32,16 @@ namespace BalanceMerger
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //this.Cursor = Cursors.WaitCursor;
-                //Thread openJ = new Thread(new ParameterizedThreadStart(OpenJThread));
-                //openJ.Start();
-                OpenJournal(openFileDialog.FileName);
-                CheckSourceData();
-                SkipProgress();
-                //this.Cursor = Cursors.Default;
-            }                
+                journal = new Journal();
+                Thread openJ = new Thread(OpenJournal);
+                openJ.Start();
+            }
         }
-
-        //private void OpenJThread()
-        //{
-        //    OpenJournal(openFileDialog.FileName);
-        //    CheckSourceData();
-        //    SkipProgress();
-        //    this.Cursor = Cursors.Default;
-        //}
 
         private void SkipProgress()
         {
             if (progressBar.Value != 0)
-            progressBar.Value = 0;
+                progressBar.Value = 0;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -63,37 +51,70 @@ namespace BalanceMerger
 
         private void BtnMerge_Click(object sender, EventArgs e)
         {
-            MergeBalance();                
+            MergeBalance();
         }
 
         private void SaveBalance()
-        {            
+        {
             saveFileDialog.FileName = Path.GetFileNameWithoutExtension(balance.fileName) + Resources.Strings.stMerge;
             saveFileDialog.Title = Resources.Strings.stSaveHeader;
             saveFileDialog.Filter = Resources.Strings.stFilterXlsx;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                balance.Save(saveFileDialog.FileName);                
+                balance.Save(saveFileDialog.FileName);
             }
         }
 
-        private void OpenBalance(string fileName)
+        private void OpenBalance()
         {
-            balance = new Balance();
-            if (balance.LoadFromFile(fileName))
+            ChangeCursor(Cursors.WaitCursor);
+            if (balance.LoadFromFile(openFileDialog.FileName))
             {
-                labelBalance.Text = balance.fileName;
-            }            
+                DoAfterOpen(labelBalance, balance.fileName);
+            }
+            ChangeCursor(Cursors.Default);
         }
 
-        private void OpenJournal(string fileName)
+        private void OpenJournal()
         {
-            journal = new Journal();            
-            if (journal.LoadFromFile(fileName))
+            ChangeCursor(Cursors.WaitCursor);
+            if (journal.LoadFromFile(openFileDialog.FileName))
             {
-                labelJournal.Text = journal.fileName;
+                DoAfterOpen(labelJournal, journal.fileName);
             }
+            ChangeCursor(Cursors.Default);
+        }
+
+        private void ChangeCursor(Cursor cursor)
+        {
+            if (this.InvokeRequired)
+                this.BeginInvoke(new Action<Cursor>((s) => this.Cursor = s), cursor);
+            else
+                this.Cursor = cursor;
+            Boolean state = !(cursor == Cursors.WaitCursor);
+            SetButtonState(btnClose, state);
+            SetButtonState(btnMerge, state);
+            SetButtonState(btnOpenBalance, state);
+            SetButtonState(btnOpenJournal, state);
+        }
+
+        private void SetButtonState(Button button, Boolean state)
+        {
+            if (button.InvokeRequired)
+                button.BeginInvoke(new Action<Boolean>((s) => button.Enabled = s), state);
+            else
+                button.Enabled = state;
+        }
+
+        private void DoAfterOpen(Label label, string fileName)
+        {
+            if (label.InvokeRequired)
+                label.BeginInvoke(new Action<string>((s) => label.Text = s), fileName);
+            else
+                label.Text = fileName;
+            CheckSourceData();
+            SkipProgress();
         }
 
         private void CheckSourceData()
@@ -101,22 +122,21 @@ namespace BalanceMerger
             if ((balance != null) & (journal != null))            
                 if ((balance.ItemsCount() > 0) & (journal.ItemsCount() > 0))
                 {
-                    btnMerge.Enabled = true;   
+                    SetButtonState(btnMerge, true);
                 }
         }
 
         private void BtnOpenBalance_Click(object sender, EventArgs e)
         {
-            openFileDialog.Title = Resources.Strings.stOpenBHeader;
+
+            openFileDialog.Title = Resources.Strings.stOpenJHeader;
             openFileDialog.Filter = Resources.Strings.stFilterXls;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.Cursor = Cursors.WaitCursor;
-                OpenBalance(openFileDialog.FileName);
-                CheckSourceData();
-                SkipProgress();
-                this.Cursor = Cursors.Default;
-            }
+                balance = new Balance();
+                Thread openB = new Thread(OpenBalance);
+                openB.Start();
+            }            
         }
 
         private void MergeBalance()
@@ -149,11 +169,7 @@ namespace BalanceMerger
         private void StopProcess()
         {
             lblStatus.Text = Resources.Strings.stDone;
-            Cursor = Cursors.Default;
-            btnClose.Enabled = true;
-            btnMerge.Enabled = true;
-            btnOpenBalance.Enabled = true;
-            btnOpenJournal.Enabled = true;
+            ChangeCursor(Cursors.Default);
         }
 
         private void StartProcess()
@@ -161,19 +177,15 @@ namespace BalanceMerger
             lblStatus.Text = Resources.Strings.stProcess;
             progressBar.Maximum = balance.ItemsCount() - 1;
             progressBar.Value = 0;
-            progressBar.Step = 1;            
-            Cursor = Cursors.WaitCursor;
-            btnClose.Enabled = false;
-            btnMerge.Enabled = false;
-            btnOpenBalance.Enabled = false;
-            btnOpenJournal.Enabled = false;
+            progressBar.Step = 1;
+            ChangeCursor(Cursors.WaitCursor);
         }
 
         private void BtnAbout_Click(object sender, EventArgs e)
         {
             FrmAbout about = new FrmAbout();            
             about.ShowDialog();
-        }
+        }     
         
     }
 }

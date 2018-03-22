@@ -196,7 +196,6 @@ namespace BalanceMerger
                 Excel.Worksheet sheet = worksheets[1];
                 sheet.Name = Resources.Strings.stSheetName;
 
-
                 sheet.Name = Resources.Strings.stSheetName;
 
                 SaveData(ref sheet);
