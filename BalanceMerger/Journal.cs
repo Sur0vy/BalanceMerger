@@ -96,37 +96,42 @@ namespace BalanceMerger
 
                 while (i < Helper.TRY_COUNT)
                 {
-                    row = row + 2;
-                    JournalItem JI = new JournalItem
+                    row++;
+                    string document = objWorksheet.Cells[row, iDoc].Text.ToString();                    
+                    if (!document.Equals(""))
                     {
-                        Description = objWorksheet.Cells[row, iCont].Text.ToString()
-                    };
-                    if (JI.Description.Equals(""))
-                    {
-                        i++;
+                        i = 0;
+                        while (true)
+                        {
+                            row++;
+                            try
+                            {
+                                JournalItem journalItem = new JournalItem
+                                {
+                                    Document = document
+                                };
+                                journalItem.Rest = double.Parse(objWorksheet.Cells[row, iAmount].Text.ToString());
+                                journalItem.Description = objWorksheet.Cells[row, iCont].Text.ToString();                                
+                                if (!journalItem.Description.Equals(""))
+                                    items.Add(journalItem);
+                            }
+                            catch (FormatException)
+                            {
+                                row--;
+                                break;
+                            }
+                        }
                     }
                     else
                     {
-                        JI.Document= objWorksheet.Cells[row - 1, iDoc].Text.ToString();
-                        if (JI.Document.Equals(""))
+                        string content = objWorksheet.Cells[row, iCont].Text.ToString();
+                        if (content.Equals(""))
                         {
                             i++;
                             continue;
                         }
-                        try
-                        {
-                            JI.Rest = double.Parse(objWorksheet.Cells[row, iAmount].Text.ToString());
-                        }
-                        catch (FormatException)
-                        {
-                            i++;
-                            continue;
-                        }
-                        items.Add(JI);
-                        i = 1;
                     }
                 }
-
                 if (items.Count > 0)
                 {
                     return true;
