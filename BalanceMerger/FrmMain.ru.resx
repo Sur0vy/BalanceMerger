@@ -124,7 +124,7 @@
     <value>Журнал</value>
   </data>
   <data name="groupBoxBalance.Text" xml:space="preserve">
-    <value>Баланс (остатки)</value>
+    <value>Остатки</value>
   </data>
   <data name="btnMerge.Text" xml:space="preserve">
     <value>Обработать</value>
@@ -976,6 +976,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Проверка баланса</value>
+    <value>Списание материалов</value>
   </data>
 </root>

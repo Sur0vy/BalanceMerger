@@ -15,7 +15,7 @@ namespace BalanceMerger
 {
     public partial class FrmMain : Form
     {
-        Excel.Application application = null;// new Excel.Application();
+        Excel.Application application = null;
 
         private Balance balance;
 
@@ -23,8 +23,8 @@ namespace BalanceMerger
 
         public FrmMain()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
-            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Helper.LANGUAGE);
+            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Helper.LANGUAGE);
             InitializeComponent();
             this.Icon = Properties.Resources.BalanceMerger;
         }
@@ -62,7 +62,7 @@ namespace BalanceMerger
             MergeBalance();
         }
 
-        private void SaveBalance()
+        private string SaveBalance()
         {
             saveFileDialog.FileName = Path.GetFileNameWithoutExtension(balance.fileName) + Resources.Strings.stMerge;
             saveFileDialog.Title = Resources.Strings.stSaveHeader;
@@ -71,7 +71,10 @@ namespace BalanceMerger
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 balance.Save(saveFileDialog.FileName);
+                //return Path.GetDirectoryName(saveFileDialog.FileName);
+                return saveFileDialog.FileName;
             }
+            return "";
         }
 
         private void OpenBalance()
@@ -185,8 +188,21 @@ namespace BalanceMerger
                 if (progress == progressBar.Maximum)
                 {
                     StopProcess();
-                    SaveBalance();
+                    string file = SaveBalance();
+                    if (!file.Equals(""))
+                        SelectFile(file);                    
                 }
+            }
+        }
+
+        private void SelectFile(string file)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("explorer.exe", @"/select, " + file);
+            }
+            catch (Exception ex)
+            {
             }
         }
 

@@ -29,6 +29,7 @@ namespace BalanceMerger
 
 
         public const int TRY_COUNT = 10;
+        public const string LANGUAGE = "ru";
 
     }
 
