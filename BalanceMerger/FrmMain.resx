@@ -147,89 +147,56 @@
   <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="groupBoxJournal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="labelJournal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="labelJournal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="labelJournal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 13</value>
-  </data>
-  <data name="labelJournal.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="labelJournal.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;labelJournal.Name" xml:space="preserve">
-    <value>labelJournal</value>
-  </data>
-  <data name="&gt;&gt;labelJournal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelJournal.Parent" xml:space="preserve">
-    <value>groupBoxJournal</value>
-  </data>
-  <data name="&gt;&gt;labelJournal.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnOpenJournal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btnOpenJournal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 20</value>
-  </data>
-  <data name="btnOpenJournal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 23</value>
-  </data>
-  <data name="btnOpenJournal.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="btnOpenJournal.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;btnOpenJournal.Name" xml:space="preserve">
-    <value>btnOpenJournal</value>
-  </data>
-  <data name="&gt;&gt;btnOpenJournal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOpenJournal.Parent" xml:space="preserve">
-    <value>groupBoxJournal</value>
-  </data>
-  <data name="&gt;&gt;btnOpenJournal.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBoxJournal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="groupBoxJournal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 52</value>
-  </data>
-  <data name="groupBoxJournal.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="groupBoxJournal.Text" xml:space="preserve">
-    <value>Journal</value>
-  </data>
-  <data name="&gt;&gt;groupBoxJournal.Name" xml:space="preserve">
-    <value>groupBoxJournal</value>
-  </data>
-  <data name="&gt;&gt;groupBoxJournal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxJournal.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxJournal.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="groupBoxBalance.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;labelBalance.Name" xml:space="preserve">
+    <value>labelBalance</value>
+  </data>
+  <data name="&gt;&gt;labelBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelBalance.Parent" xml:space="preserve">
+    <value>groupBoxBalance</value>
+  </data>
+  <data name="&gt;&gt;labelBalance.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnOpenBalance.Name" xml:space="preserve">
+    <value>btnOpenBalance</value>
+  </data>
+  <data name="&gt;&gt;btnOpenBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOpenBalance.Parent" xml:space="preserve">
+    <value>groupBoxBalance</value>
+  </data>
+  <data name="&gt;&gt;btnOpenBalance.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 70</value>
+  </data>
+  <data name="groupBoxBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 57</value>
+  </data>
+  <data name="groupBoxBalance.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBoxBalance.Text" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="&gt;&gt;groupBoxBalance.Name" xml:space="preserve">
+    <value>groupBoxBalance</value>
+  </data>
+  <data name="&gt;&gt;groupBoxBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxBalance.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxBalance.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="labelBalance.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -285,30 +252,6 @@
   <data name="&gt;&gt;btnOpenBalance.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBoxBalance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 70</value>
-  </data>
-  <data name="groupBoxBalance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 57</value>
-  </data>
-  <data name="groupBoxBalance.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="groupBoxBalance.Text" xml:space="preserve">
-    <value>Balance</value>
-  </data>
-  <data name="&gt;&gt;groupBoxBalance.Name" xml:space="preserve">
-    <value>groupBoxBalance</value>
-  </data>
-  <data name="&gt;&gt;groupBoxBalance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxBalance.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxBalance.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="btnMerge.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -334,7 +277,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnMerge.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -361,7 +304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>150, 17</value>
@@ -388,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnAbout.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -415,6 +358,114 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAbout.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelJournal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="labelJournal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Off</value>
+  </data>
+  <data name="labelJournal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="labelJournal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 13</value>
+  </data>
+  <data name="labelJournal.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelJournal.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;labelJournal.Name" xml:space="preserve">
+    <value>labelJournal</value>
+  </data>
+  <data name="&gt;&gt;labelJournal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelJournal.Parent" xml:space="preserve">
+    <value>groupBoxJournal</value>
+  </data>
+  <data name="&gt;&gt;labelJournal.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnOpenJournal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnOpenJournal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Off</value>
+  </data>
+  <data name="btnOpenJournal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 20</value>
+  </data>
+  <data name="btnOpenJournal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 23</value>
+  </data>
+  <data name="btnOpenJournal.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnOpenJournal.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnOpenJournal.Name" xml:space="preserve">
+    <value>btnOpenJournal</value>
+  </data>
+  <data name="&gt;&gt;btnOpenJournal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOpenJournal.Parent" xml:space="preserve">
+    <value>groupBoxJournal</value>
+  </data>
+  <data name="&gt;&gt;btnOpenJournal.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxJournal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="groupBoxJournal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="groupBoxJournal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 52</value>
+  </data>
+  <data name="groupBoxJournal.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBoxJournal.Text" xml:space="preserve">
+    <value>Journal</value>
+  </data>
+  <data name="&gt;&gt;groupBoxJournal.Name" xml:space="preserve">
+    <value>groupBoxJournal</value>
+  </data>
+  <data name="&gt;&gt;groupBoxJournal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxJournal.Parent" xml:space="preserve">
+    <value>panelJournal</value>
+  </data>
+  <data name="&gt;&gt;groupBoxJournal.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelJournal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="panelJournal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 52</value>
+  </data>
+  <data name="panelJournal.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panelJournal.Name" xml:space="preserve">
+    <value>panelJournal</value>
+  </data>
+  <data name="&gt;&gt;panelJournal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelJournal.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelJournal.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
