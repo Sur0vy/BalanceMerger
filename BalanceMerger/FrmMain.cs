@@ -244,12 +244,12 @@ namespace BalanceMerger
             application.Quit();
         }
 
-        private void panelJournal_DragEnter(object sender, DragEventArgs e)
+        private void PanelJournal_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
         }
 
-        private void panelJournal_DragDrop(object sender, DragEventArgs e)
+        private void PanelJournal_DragDrop(object sender, DragEventArgs e)
         {
             string[] file = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             if (File.Exists(file[0]))
