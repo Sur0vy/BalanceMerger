@@ -12,27 +12,35 @@ namespace BalanceMerger
 
     public class Merger
     {
+        #region Public events
         public event MergerHandler Progress;
+        #endregion
 
+        #region Private declarations
         private Balance balance;
         private Journal journal;
+        #endregion
 
+        #region ctor
         public Merger(Balance balance, Journal journal)
         {
             this.balance = balance;
             this.journal = journal;
         }
+        #endregion
 
+        #region Main function
         public void DoMerge()
         {
             BalanceItem bi;
             for (int i = 1; i <= balance.ItemsCount() - 1; ++i)
             {
-                bi = balance.GetItem(i);
-                ItemState itemState;
+                bi = balance.GetItem(i);                 
                 List<int> indexes = new List<int>();
-                itemState = journal.HasItem(bi.Description, bi.Rest, ref indexes);
+                
+                ItemState itemState = journal.HasItem(bi.Description, bi.Rest, ref indexes);
                 bi.Status = itemState;
+
                 switch (itemState)
                 {
                     case ItemState.isFound:
@@ -68,5 +76,6 @@ namespace BalanceMerger
                 Thread.Sleep(5);
             }
         }
-    }    
+        #endregion
+    }
 }

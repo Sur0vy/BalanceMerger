@@ -201,7 +201,7 @@ namespace BalanceMerger
             {
                 System.Diagnostics.Process.Start("explorer.exe", @"/select, " + file);
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
             }
         }
